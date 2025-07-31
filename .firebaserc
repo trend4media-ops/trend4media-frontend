@@ -1,5 +1,15 @@
 {
   "projects": {
     "default": "trend4media-frontend"
-  }
-} 
+  },
+  "targets": {
+    "t4m-abrechnung": {
+      "hosting": {
+        "main": [
+          "trend4m"
+        ]
+      }
+    }
+  },
+  "etags": {}
+}
