@@ -19,7 +19,8 @@ const nextConfig: NextConfig = {
     ],
   },
   async rewrites() {
-    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
+    // Fix: Direkte API URL für Vercel Deployment
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'https://api.trend4media.com';
     return [
       {
         source: '/api/:path*',
@@ -57,9 +58,9 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   generateEtags: false,
   
-  // Environment-specific configuration
+  // Environment-specific configuration - Fix für Vercel
   env: {
-    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL,
+    NEXT_PUBLIC_API_URL: process.env.NEXT_PUBLIC_API_URL || 'https://api.trend4media.com',
   },
 };
 
