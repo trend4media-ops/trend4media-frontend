@@ -1,66 +1,9 @@
 {
-  "buildCommand": "npm run build",
-  "outputDirectory": ".next",
-  "framework": "nextjs",
-  "installCommand": "npm ci",
-  "devCommand": "npm run dev",
-  "regions": ["iad1"],
-  "env": {
-    "NEXT_PUBLIC_API_URL": "https://trend4media-backend-prod.herokuapp.com"
-  },
-  "build": {
-    "env": {
-      "NEXT_PUBLIC_API_URL": "https://trend4media-backend-prod.herokuapp.com"
-    }
-  },
-  "functions": {
-    "app/**": {
-      "maxDuration": 30
-    }
-  },
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "DENY"
-        },
-        {
-          "key": "X-XSS-Protection",
-          "value": "1; mode=block"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "Strict-Transport-Security",
-          "value": "max-age=31536000; includeSubDomains"
-        }
-      ]
-    }
+  "version": 2,
+  "builds": [
+    { "src": "trend4media-frontend/package.json", "use": "@vercel/next" }
   ],
-  "redirects": [
-    {
-      "source": "/",
-      "has": [
-        {
-          "type": "cookie",
-          "key": "auth-token"
-        }
-      ],
-      "destination": "/dashboard",
-      "permanent": false
-    }
-  ],
-  "cleanUrls": true,
-  "trailingSlash": false,
-  "github": {
-    "silent": true
-  }
+  "routes": [
+    { "src": "/(.*)", "dest": "/trend4media-frontend/$1" }
+  ]
 } 
