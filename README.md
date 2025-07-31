@@ -1,36 +1,89 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🔥 trend4media Frontend - Firebase Hosting
 
-## Getting Started
+Next.js 14 Frontend mit statischem Export für Firebase Hosting.
 
-First, run the development server:
+## 🚀 Quick Start
 
+### Lokale Entwicklung
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# → http://localhost:3001
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Production Build & Export
+```bash
+# Statischen Export erstellen
+NEXT_PUBLIC_API_URL=https://api.trend4media.com npm run export
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+# Output Verzeichnis
+ls -la out/
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Firebase Deployment
+```bash
+# Firebase CLI installieren
+npm install -g firebase-tools
 
-## Learn More
+# Mit Token anmelden
+firebase login:ci --token "$FIREBASE_TOKEN"
 
-To learn more about Next.js, take a look at the following resources:
+# Deployment durchführen
+firebase deploy --only hosting --project trend4media-frontend
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🌐 Production URLs
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Firebase Hosting
+```
+Primary:  https://trend4media-frontend.web.app
+Legacy:   https://trend4media-frontend.firebaseapp.com
+Login:    https://trend4media-frontend.web.app/login/
+Admin:    https://trend4media-frontend.web.app/admin/
+Dashboard: https://trend4media-frontend.web.app/dashboard/
+```
 
-## Deploy on Vercel
+### Alternative Deployments
+```
+Vercel:   https://trend4media-frontend.vercel.app
+Custom:   https://app.trend4media.com
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## 🔧 Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+# Production API
+NEXT_PUBLIC_API_URL=https://api.trend4media.com
+
+# Development API
+NEXT_PUBLIC_API_URL=http://localhost:3000
+```
+
+## 📋 Features
+
+- ✅ **Static Export** für Firebase Hosting
+- ✅ **SPA Routing** mit clientseitigem Navigation
+- ✅ **Security Headers** (HSTS, XSS Protection)
+- ✅ **Performance Optimiert** (CDN, Caching)
+- ✅ **SSL/HTTPS** automatisch
+- ✅ **Custom Domains** Support
+
+## 🛠️ Scripts
+
+```bash
+npm run dev     # Development Server
+npm run build   # Next.js Build
+npm run export  # Static Export für Firebase
+npm run start   # Production Server (lokal)
+npm run lint    # ESLint Check
+```
+
+## 📖 Deployment Guides
+
+- **[Firebase Hosting](../FIREBASE_DEPLOYMENT.md)** - Detaillierte Anleitung
+- **[Vercel](../DEPLOYMENT.md)** - Alternative Deployment
+- **[Custom Domains](../CUSTOM_DOMAIN_SETUP.md)** - Domain Setup
+
+---
+
+**Status: ✅ Ready for Firebase Hosting Deployment**

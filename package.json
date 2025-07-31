@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "export": "next build",
     "start": "next start",
     "lint": "next lint"
   },
@@ -29,6 +30,7 @@
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "15.4.5",
+    "firebase-tools": "^14.11.2",
     "tailwindcss": "^4",
     "typescript": "^5"
   }
